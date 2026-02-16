@@ -14,6 +14,7 @@ bool isValidParenthesis()
             parenthesesStack.push(c);
         } else {
             if (parenthesesStack.empty()) return false;
+            parenthesesStack.pop();
         }
     }
     if (!parenthesesStack.empty()) return false;
