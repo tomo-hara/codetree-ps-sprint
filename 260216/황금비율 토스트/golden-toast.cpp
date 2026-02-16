@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <list>
 
 using namespace std;
 
@@ -10,27 +11,32 @@ int main() {
     cin >> n >> m;
     cin >> s;
 
-    string::iterator it = s.end();
+    list<char> editor(s.begin(), s.end());
+    list<char>::iterator it = editor.end();
 
     for (int i = 0; i < m; i++) {
         char command;
         cin >> command;
-        if (command == 'L') {
-            if (it != s.begin()) it--;
-        } else if (command == 'R') {
-            if (it != s.end()) it++;
-        } else if (command == 'D') {
-            if (it != s.end()) it = s.erase(it);
-        } else if (command == 'P') {
-            char c;
-            cin >> c;
-
-            it = s.insert(it, c);
-            it++;
+        switch (command) {
+            case 'L':
+                if (it != editor.begin()) it--;
+                break;
+            case 'R':
+                if (it != editor.begin()) it++;
+                break;
+            case 'D':
+                if (it != editor.end()) it = editor.erase(it);
+                break;
+            case 'P':
+                char c;
+                cin >> c;
+                editor.insert(it, c);
+                break;
         }
     }
 
-    cout << s << endl;
+    for (char c : editor) cout << c;
+    cout << endl;
 
     return 0;
 }
