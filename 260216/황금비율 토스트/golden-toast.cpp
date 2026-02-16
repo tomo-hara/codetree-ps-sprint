@@ -22,7 +22,7 @@ int main() {
                 if (it != editor.begin()) it--;
                 break;
             case 'R':
-                if (it != editor.begin()) it++;
+                if (it != editor.end()) it++;
                 break;
             case 'D':
                 if (it != editor.end()) it = editor.erase(it);
@@ -36,7 +36,6 @@ int main() {
     }
 
     for (char c : editor) cout << c;
-    cout << endl;
 
     return 0;
 }
