@@ -16,7 +16,8 @@ int main() {
     // Please write your code here.
     int count = 0;
     for (int i = 0; i < n - 2; i++) {
-        int first_choice = arr[i];
+        int first_choice = k - arr[i];
+        freq.clear();
         for (int sub_i = i + 1; sub_i < n; sub_i++) {
             int target = first_choice - arr[sub_i];
             if (freq.find(target) != freq.end()) {
